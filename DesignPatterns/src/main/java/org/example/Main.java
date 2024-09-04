@@ -4,6 +4,10 @@ import org.example.Behavioral.ChainOfResponsibility.*;
 import org.example.Behavioral.Command.Light;
 import org.example.Behavioral.Command.Room;
 import org.example.Behavioral.Command.SwitchLightsCommand;
+import org.example.Behavioral.Memento.Editor;
+import org.example.Behavioral.Observer.EmailMsgListener;
+import org.example.Behavioral.Observer.MobileAppListener;
+import org.example.Behavioral.Observer.Store;
 import org.example.Behavioral.TemplateMethod.BaseGameLoader;
 import org.example.Behavioral.TemplateMethod.DiabloLoader;
 import org.example.Behavioral.TemplateMethod.WorldOfWarcraftLoader;
@@ -138,6 +142,50 @@ public class Main {
 
 //--------------------------------------------------------------------------------------------------------------------------------------------------------------------//
 
+        /*
+        Mediator:
+            - Defines an object that encapsulates how a set of other objects interact with one another
+            - Restricts direct communications between objects and forces them to collaborate
+              via a mediator, hence reducing the dependencies between them
+        */
+
+//--------------------------------------------------------------------------------------------------------------------------------------------------------------------//
+
+        /*
+        Memento:
+            - Delegates creating the state snapshots to the actual owner of that state
+        */
+        /*
+        Editor editor = new Editor();
+        editor.write("Like");
+        editor.write("Like and");
+        editor.write("Like and Subscribe");
+        editor.undo();
+        */
+
+
+//--------------------------------------------------------------------------------------------------------------------------------------------------------------------//
+
+        /*
+        Observer:
+            - Notifies multiple objects, or subscribers, about any events that happen
+              to the object they’re observing, or publisher
+        */
+        /*
+        Store store = new Store();
+        store.getNotificationService().subscribe(new EmailMsgListener("a"));
+        store.getNotificationService().subscribe(new EmailMsgListener("b"));
+        store.getNotificationService().subscribe(new MobileAppListener("c"));
+        store.newItemPromotion();
+        */
+
+
+
+
+
+
+//--------------------------------------------------------------------------------------------------------------------------------------------------------------------//
+
 
 
 
@@ -150,6 +198,7 @@ public class Main {
 
 
 //--------------------------------------------------------------------------------------------------------------------------------------------------------------------//
+
 
 
     }
