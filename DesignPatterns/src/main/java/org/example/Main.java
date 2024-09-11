@@ -8,10 +8,18 @@ import org.example.Behavioral.Memento.Editor;
 import org.example.Behavioral.Observer.EmailMsgListener;
 import org.example.Behavioral.Observer.MobileAppListener;
 import org.example.Behavioral.Observer.Store;
+import org.example.Behavioral.State.Phone;
+import org.example.Behavioral.Strategy.PaymentByCreditCard;
+import org.example.Behavioral.Strategy.PaymentByPayPal;
+import org.example.Behavioral.Strategy.PaymentService;
 import org.example.Behavioral.TemplateMethod.BaseGameLoader;
 import org.example.Behavioral.TemplateMethod.DiabloLoader;
 import org.example.Behavioral.TemplateMethod.WorldOfWarcraftLoader;
+import org.example.Behavioral.Visitor.*;
 import org.example.Creational.Prototype.VehicleCache;
+
+import java.util.ArrayList;
+import java.util.List;
 
 
 public class Main {
@@ -179,23 +187,63 @@ public class Main {
         store.newItemPromotion();
         */
 
+//--------------------------------------------------------------------------------------------------------------------------------------------------------------------//
 
+        /*
+        State:
+            - Allows an object alter its behavior when its internal state changes
+        */
+        /*
+        Phone phone = new Phone();
+        phone.state.onHome();
+        phone.state.onOffOn();
+        phone.state.onOffOn();
+        phone.state.onHome();
+        */
 
+//--------------------------------------------------------------------------------------------------------------------------------------------------------------------//
 
+        /*
+        Strategy:
+            - Defines a family of algorithms, puts each of them in a separate class, and
+              makes their objects interchangeable
+        */
+        /*
+        PaymentService paymentService = new PaymentService();
+        paymentService.setStrategy(new PaymentByCreditCard());
+        paymentService.processOrder();
+        paymentService.setStrategy(new PaymentByPayPal());
+        paymentService.processOrder();
+        */
+
+//--------------------------------------------------------------------------------------------------------------------------------------------------------------------//
+
+        /*
+        Iterator:
+            - Extracts the traversal behavior of a collection into a separate object called an iterator
+            - Traverses the elements of a collection without exposing its underlying representation
+        */
 
 
 //--------------------------------------------------------------------------------------------------------------------------------------------------------------------//
 
+        /*
+        Visitor:
+            - Separates the algorithms or behaviors from the objects on which they operate
+        */
+        /*
+        List<Client> clients = new ArrayList<Client>();
+        clients.add(new Restaurant("a", "a", "10"));
+        clients.add(new Bank("b", "b", "20"));
+        clients.add(new Resident("c", "c", "30"));
 
+        InsuranceMessagingVisitor insuranceMessagingVisitor = new InsuranceMessagingVisitor();
+        insuranceMessagingVisitor.sendInsuranceMails(clients);
+        */
 
+//--------------------------------------------------------------------------------------------------------------------------------------------------------------------//
 
-
-
-
-
-
-
-
+//--------------------------------------------------------------------------------------------------------------------------------------------------------------------//
 
 //--------------------------------------------------------------------------------------------------------------------------------------------------------------------//
 
