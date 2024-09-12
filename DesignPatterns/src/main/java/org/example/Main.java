@@ -17,6 +17,18 @@ import org.example.Behavioral.TemplateMethod.DiabloLoader;
 import org.example.Behavioral.TemplateMethod.WorldOfWarcraftLoader;
 import org.example.Behavioral.Visitor.*;
 import org.example.Creational.Prototype.VehicleCache;
+import org.example.Structural.Adapter.FancyUIService;
+import org.example.Structural.Adapter.FancyUIServiceAdapter;
+import org.example.Structural.Adapter.IMultiRestoApp;
+import org.example.Structural.Adapter.MultiRestoApp;
+import org.example.Structural.Bridge.Abstraction.AmericanRestaurant;
+import org.example.Structural.Bridge.Abstraction.ItalianRestaurant;
+import org.example.Structural.Bridge.Implementation.PepperoniPizza;
+import org.example.Structural.Bridge.Implementation.VeggiePizza;
+import org.example.Structural.Composite.Book;
+import org.example.Structural.Composite.CompositeBox;
+import org.example.Structural.Composite.DeliveryService;
+import org.example.Structural.Composite.VideoGame;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -243,11 +255,71 @@ public class Main {
 
 //--------------------------------------------------------------------------------------------------------------------------------------------------------------------//
 
-//--------------------------------------------------------------------------------------------------------------------------------------------------------------------//
+        /*
+        Adapter:
+            - Allows objects with incompatible interfaces to collaborate with one another
+        */
+        /*
+        IMultiRestoApp multiRestoApp = new MultiRestoApp();
+        multiRestoApp.displayMenus("XML");
+
+        FancyUIServiceAdapter adapter = new FancyUIServiceAdapter(new FancyUIService());
+        adapter.displayMenus("XML");
+        */
 
 //--------------------------------------------------------------------------------------------------------------------------------------------------------------------//
 
+        /*
+        Bridge:
+            - Splits a large class into two separate hierarchies which can de developed independently
+        */
+        /*
+        AmericanRestaurant americanRestaurant = new AmericanRestaurant(new PepperoniPizza());
+        americanRestaurant.deliver();
 
+        ItalianRestaurant italianRestaurant = new ItalianRestaurant(new VeggiePizza());
+        italianRestaurant.deliver();
+        */
+
+//--------------------------------------------------------------------------------------------------------------------------------------------------------------------//
+
+        /*
+        Composite:
+            - Composes objects into tree structures and then work with these structures as
+              if they were individual objects
+        */
+        /*
+        DeliveryService deliveryService = new DeliveryService();
+
+        deliveryService.setupOrder(
+                new CompositeBox(
+                        new VideoGame("1", 100)
+                ),
+                new CompositeBox(
+                        new CompositeBox(
+                                new Book("2", 200),
+                                new Book("3", 300)
+                        ),
+                        new VideoGame("4", 400),
+                        new VideoGame("5", 500)
+                )
+        );
+
+        deliveryService.calculateOrderPrice();
+        */
+//--------------------------------------------------------------------------------------------------------------------------------------------------------------------//
+
+
+
+//--------------------------------------------------------------------------------------------------------------------------------------------------------------------//
+//--------------------------------------------------------------------------------------------------------------------------------------------------------------------//
+//--------------------------------------------------------------------------------------------------------------------------------------------------------------------//
+//--------------------------------------------------------------------------------------------------------------------------------------------------------------------//
+//--------------------------------------------------------------------------------------------------------------------------------------------------------------------//
+//--------------------------------------------------------------------------------------------------------------------------------------------------------------------//
+//--------------------------------------------------------------------------------------------------------------------------------------------------------------------//
+//--------------------------------------------------------------------------------------------------------------------------------------------------------------------//
+//--------------------------------------------------------------------------------------------------------------------------------------------------------------------//
 
     }
 }
