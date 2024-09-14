@@ -7,7 +7,6 @@ import org.example.Behavioral.Command.SwitchLightsCommand;
 import org.example.Behavioral.Memento.Editor;
 import org.example.Behavioral.Observer.EmailMsgListener;
 import org.example.Behavioral.Observer.MobileAppListener;
-import org.example.Behavioral.Observer.Store;
 import org.example.Behavioral.State.Phone;
 import org.example.Behavioral.Strategy.PaymentByCreditCard;
 import org.example.Behavioral.Strategy.PaymentByPayPal;
@@ -29,7 +28,16 @@ import org.example.Structural.Composite.Book;
 import org.example.Structural.Composite.CompositeBox;
 import org.example.Structural.Composite.DeliveryService;
 import org.example.Structural.Composite.VideoGame;
+import org.example.Structural.Decorator.FacebookDecorator;
+import org.example.Structural.Decorator.INotifier;
+import org.example.Structural.Decorator.Notifier;
+import org.example.Structural.Decorator.WhatsAppDecorator;
+import org.example.Structural.Facade.NotifierFacade;
+import org.example.Structural.Flyweight.Store;
+import org.example.Structural.Proxy.ProxyVideoDownloader;
+import org.example.Structural.Proxy.VideoDownloader;
 
+import java.lang.management.MemoryUsage;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -307,19 +315,70 @@ public class Main {
 
         deliveryService.calculateOrderPrice();
         */
-//--------------------------------------------------------------------------------------------------------------------------------------------------------------------//
-
-
 
 //--------------------------------------------------------------------------------------------------------------------------------------------------------------------//
-//--------------------------------------------------------------------------------------------------------------------------------------------------------------------//
-//--------------------------------------------------------------------------------------------------------------------------------------------------------------------//
-//--------------------------------------------------------------------------------------------------------------------------------------------------------------------//
-//--------------------------------------------------------------------------------------------------------------------------------------------------------------------//
-//--------------------------------------------------------------------------------------------------------------------------------------------------------------------//
-//--------------------------------------------------------------------------------------------------------------------------------------------------------------------//
-//--------------------------------------------------------------------------------------------------------------------------------------------------------------------//
+
+        /*
+        Decorator:
+            - Attach new behaviors to an object by placing this object inside a
+              special wrapper that contains these behaviors
+        */
+        /*
+        INotifier notifier = new FacebookDecorator(
+                new WhatsAppDecorator(
+                        new Notifier("John")
+                )
+        );
+        notifier.send("Test text");
+        */
+
 //--------------------------------------------------------------------------------------------------------------------------------------------------------------------//
 
+        /*
+        Facade:
+            - Provides a simplified interface to a library, a framework, or any
+              other complex set of classes
+        */
+        /*
+        NotifierFacade notifier = new NotifierFacade();
+        notifier.sendNotification("John", "Test");
+        */
+
+//--------------------------------------------------------------------------------------------------------------------------------------------------------------------//
+
+        /*
+        Flyweight:
+            - Fit more objects into the available RAM by sharing common parts of state between multiple objects,
+              instead of storing all of the data in each object individually
+        */
+        /*
+        final int BOOK_TYPES = 2;
+        final int BOOKS_TO_INSERT = 10_000_000;
+
+        Store store = new Store();
+        for (int i = 0; i < BOOKS_TO_INSERT / BOOK_TYPES; i++) {
+            store.storeBook(Long.toString(Math.round(Math.random() * 1000)), 1000, "Action", "Follett", "Stuff");
+            store.storeBook(Long.toString(Math.round(Math.random() * 1000)), 1000, "Fantasy", "Ingram", "Extra");
+        }
+        store.displayBooks();
+        */
+
+//--------------------------------------------------------------------------------------------------------------------------------------------------------------------//
+
+        /*
+        Proxy:
+            - Provides a substitute for another object and controls access to that object,
+              allowing you to perform something before or after the request reaches the original object
+        */
+        /*
+        VideoDownloader videoDownloader = new ProxyVideoDownloader();
+        videoDownloader.getVideo("geekific");
+        videoDownloader.getVideo("geekific");
+        videoDownloader.getVideo("likeNsub");
+        videoDownloader.getVideo("likeNsub");
+        videoDownloader.getVideo("geekific");
+        */
+
+//--------------------------------------------------------------------------------------------------------------------------------------------------------------------//
     }
 }
